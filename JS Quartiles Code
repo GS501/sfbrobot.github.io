@@ -1,0 +1,73 @@
+  var input,
+    ordered,
+    entryNum,
+    medianNum,
+    lowerMedNum,
+    upperMedNum,
+    entry[50],
+    bubble,
+    median,
+    lowerMedian,
+    upperMedian,
+    writeString;
+
+  console.log("How many entries do you have?");
+  //cin >> entryNum;
+
+  for(int i = 0; i < entryNum; i++) {
+    writeString = "Entry number " + "i+1";
+    console.log(writeString);
+    console.log(entry[i]);
+  }  
+
+  do {
+    ordered = true;
+    for(int i = 0; i < entryNum-1; i++) {
+      if(entry[i] > entry[i+1]) {
+        bubble = entry[i];
+        entry[i] = entry[i+1];
+        entry[i+1] = bubble;
+        ordered = false;
+      }
+    }
+  } while(!ordered);
+
+  for(int i = 0; i < entryNum; i++) {
+    console.log(entry[i]);
+  }
+
+  medianNum = Math.ceil(entryNum/2);
+
+  lowerMedNum = Math.ceil(entryNum/4);
+
+  upperMedNum = Math.ceil(3*entryNum/4);
+
+  if(medianNum == entryNum/2)
+    median = (entry[medianNum-1] + entry[medianNum]) / 2;
+
+  else
+    median = entry[medianNum];
+
+  if(lowerMedNum == entryNum/4)
+    lowerMedian = (entry[lowerMedNum-1] + entry[lowerMedNum]) / 2;
+
+  else
+    lowerMedian = entry[lowerMedNum];
+
+  if(upperMedNum == 3*entryNum/4)
+    upperMedian = (entry[upperMedNum-1] + entry[upperMedNum]) / 2;
+
+  else
+    upperMedian = entry[upperMedNum];
+
+  writeString = "Q1: " + lowerMedian;
+
+  console.log(writeString);
+
+  writeString = "Median: " + median;
+
+  console.log(writeString);
+
+  writeString = "Q3: " + upperMedian;
+
+  console.log(writeString);
